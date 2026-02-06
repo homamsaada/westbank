@@ -363,6 +363,61 @@ const T = {
     declared: "المُعلن",
     hidden: "المخفي",
     total: "الإجمالي",
+    aboutStudy: "حول الدراسة",
+    aboutTabs: {
+      what: "ما هي الدراسة؟",
+      studied: "ماذا درست؟",
+      expanded: "فيمَ توسّعت؟",
+      achieved: "ماذا أنجزت؟",
+      methodology: "المنهجية",
+    },
+    aboutContent: {
+      what: {
+        title: "58 عاماً من الاستيطان: التوثيق الكمّي الشامل (1967–2025)",
+        body: "دراسة تحليلية كمّية شاملة تُوثّق المشروع الاستيطاني الإسرائيلي في الضفة الغربية والقدس الشرقية على مدى 58 عاماً. تعتمد منهجية التوثيق بالأرقام والبيانات القابلة للتحقق، مستندةً إلى أكثر من 13 مصدراً دولياً وإسرائيلياً وفلسطينياً: مؤسسات الأمم المتحدة (OCHA، UNCTAD، UNRWA)، البنك الدولي، منظمات حقوقية إسرائيلية (B'Tselem، Peace Now، ICAHD)، مراكز أبحاث فلسطينية (ARIJ، PCBS، BADIL)، تقارير الكونغرس الأمريكي (CRS)، ووزارة المالية الإسرائيلية. كل رقم في الدراسة قابل للتحقق من مصدره الأصلي.",
+      },
+      studied: {
+        title: "أربعة أبواب رئيسية وملاحق تفصيلية",
+        items: [
+          { icon: "📜", label: "التأسيس والإطار", text: "رصد التطور التاريخي عبر 7 مراحل — من التأسيس (1967) إلى التسارع بعد 7 أكتوبر 2023، والإطار القانوني: 200+ قرار دولي و3 أحكام من محكمة العدل الدولية بنسبة تنفيذ صفر." },
+          { icon: "💰", label: "الاقتصاد الاستيطاني", text: "الإنفاق الإسرائيلي (48.5–71.6 مليار $) والقطاعات الاستيطانية والدعم الأمريكي (140.6 مليار $)، مقابل الخسائر الفلسطينية: مصادرة الأراضي، تدمير 800,000+ شجرة زيتون، هدم 59,000+ مبنى، والخسائر الاقتصادية الشاملة." },
+          { icon: "🏗️", label: "البنية التحتية للسيطرة", text: "849 حاجزاً، جدار فصل 712 كم، طرق التفافية، قواعد عسكرية، نظام تصاريح، عنف استيطاني، اعتقالات، وتهجير قسري لأكثر من 500,000 فلسطيني." },
+          { icon: "📊", label: "التحليل والنتائج", text: "6 مقارنات صادمة تكشف اللامساواة الممنهجة، تحليل منحنى التسارع، وإثبات استمرارية السياسة عبر جميع الحكومات من كل الأطياف السياسية." },
+        ],
+      },
+      expanded: {
+        title: "مجالات لم تُغطَّ سابقاً بهذا العمق",
+        items: [
+          { icon: "⏳", value: "8.1 مليار ساعة", text: "حساب الأعمار البشرية الضائعة على الحواجز: تعادل 13,200 حياة كاملة بتكلفة 39.2 مليار $ — حساب غير مسبوق." },
+          { icon: "📈", value: "357–450 مليار $", text: "التقدير الإجمالي الشامل للخسائر الفلسطينية — ضعف تقديرات المنظمات الدولية، بإضافة بنود لم تُحسب سابقاً: بروتوكول باريس، الأراضي كأصول، المنازل المهدومة." },
+          { icon: "🔬", value: "Fungibility", text: "تحليل الدعم الأمريكي بنظرية قابلية الأموال للاستبدال المعتمدة في أدبيات البنك الدولي، مع أدلة تجريبية من خصومات ضمانات القروض (1.085 مليار $)." },
+          { icon: "🔴", value: "10x المعدل", text: "توثيق التصعيد بعد 7 أكتوبر: 24,258 دونم صودرت (2024)، 59 بؤرة جديدة، +52% إنفاق في ربع واحد، +32% حواجز." },
+        ],
+      },
+      achieved: {
+        title: "الخلاصات المركزية",
+        equation: "كل $1 أنفقته إسرائيل = $8 خسائر فلسطينية",
+        equationSub: "40–60 مليار $ إنفاق ← 300–400 مليار $ خسائر",
+        conclusions: [
+          "الاستيطان سياسة ممنهجة وليس ممارسات عشوائية",
+          "سياسة دولة فوق حزبية — ثابتة عبر جميع الحكومات",
+          "التصعيد المستمر عبر الزمن وليس الثبات أو التراجع",
+          "نسبة 1:8 تكشف نظام نهب وإفقار مبرمج",
+          "200+ قرار دولي بدون أي تطبيق أو مساءلة",
+          "أثر تراكمي متعدد الأجيال لا يمكن تعويضه",
+        ],
+        finalMessage: "مشروع اقتصادي-سياسي ممنهج لتصفية إمكانية قيام دولة فلسطينية",
+      },
+      methodology: {
+        title: "معايير صارمة للموثوقية",
+        items: [
+          { icon: "📋", label: "تصنيف ثلاثي", text: "كل رقم مصنّف: موثّق (من مصادر أولية) / محسوب (من أرقام موثقة) / تقديري (للفترات التاريخية)." },
+          { icon: "🔍", label: "تحقق متقاطع", text: "التحقق من مصدرين مستقلين على الأقل حيثما أمكن، مع معايير واضحة للقبول والرفض." },
+          { icon: "📉", label: "تقديرات محافظة", text: "اعتماد الحد الأدنى المعقول لتعزيز المصداقية، مع هوامش خطأ معلنة (±5% إلى ±40%)." },
+          { icon: "🔓", label: "شفافية كاملة", text: "جميع المنهجيات والافتراضات موثقة وقابلة للتحقق والمراجعة من أي باحث مستقل." },
+        ],
+      },
+    },
   },
   en: {
     dashboard: "Main Dashboard",
@@ -397,6 +452,61 @@ const T = {
     declared: "Declared",
     hidden: "Hidden",
     total: "Total",
+    aboutStudy: "About the Study",
+    aboutTabs: {
+      what: "What is this?",
+      studied: "What it covers",
+      expanded: "New contributions",
+      achieved: "Key findings",
+      methodology: "Methodology",
+    },
+    aboutContent: {
+      what: {
+        title: "58 Years of Settlement: Comprehensive Quantitative Documentation (1967–2025)",
+        body: "A comprehensive quantitative analytical study documenting the Israeli settlement enterprise in the West Bank and East Jerusalem over 58 years. It relies on verifiable data from 13+ international, Israeli, and Palestinian sources: UN agencies (OCHA, UNCTAD, UNRWA), the World Bank, Israeli human rights organizations (B'Tselem, Peace Now, ICAHD), Palestinian research centers (ARIJ, PCBS, BADIL), US Congressional Research Service (CRS), and the Israeli Ministry of Finance. Every figure is traceable to its original source.",
+      },
+      studied: {
+        title: "Four main parts with detailed appendices",
+        items: [
+          { icon: "📜", label: "Foundation & Framework", text: "Historical evolution through 7 phases — from establishment (1967) to post-October 7 escalation, plus legal framework: 200+ international resolutions and 3 ICJ rulings with zero implementation." },
+          { icon: "💰", label: "Settlement Economics", text: "Israeli spending ($48.5–71.6B), settlement economic sectors, US support ($140.6B), vs Palestinian losses: land confiscation, 800,000+ olive trees destroyed, 59,000+ structures demolished." },
+          { icon: "🏗️", label: "Control Infrastructure", text: "849 checkpoints, 712 km separation wall, bypass roads, military bases, permit system, settler violence, arrests, and forced displacement of 500,000+ Palestinians." },
+          { icon: "📊", label: "Analysis & Findings", text: "6 shocking comparisons revealing systemic inequality, acceleration curve analysis, and proof of policy continuity across all governments regardless of political affiliation." },
+        ],
+      },
+      expanded: {
+        title: "Areas not previously covered at this depth",
+        items: [
+          { icon: "⏳", value: "8.1B hours", text: "Human lifetimes lost at checkpoints: equivalent to 13,200 complete lives at $39.2B cost — an unprecedented calculation." },
+          { icon: "📈", value: "$357–450B", text: "Comprehensive Palestinian losses estimate — double international estimates, adding previously uncounted items: Paris Protocol, land as assets, demolished homes." },
+          { icon: "🔬", value: "Fungibility", text: "US support analyzed via World Bank-endorsed aid fungibility theory, with empirical evidence from loan guarantee deductions ($1.085B)." },
+          { icon: "🔴", value: "10x the rate", text: "Post-Oct 7 escalation: 24,258 dunams seized (2024), 59 new outposts, +52% spending in one quarter, +32% checkpoints." },
+        ],
+      },
+      achieved: {
+        title: "Central conclusions",
+        equation: "Every $1 Israel spent = $8 Palestinian losses",
+        equationSub: "$40–60B spending → $300–400B losses",
+        conclusions: [
+          "Settlement is a systematic policy, not random practices",
+          "A state policy above party lines — consistent across all governments",
+          "Continuous escalation over time, not stagnation or retreat",
+          "The 1:8 ratio reveals a programmed system of extraction",
+          "200+ international resolutions with zero enforcement",
+          "Multi-generational cumulative impact beyond compensation",
+        ],
+        finalMessage: "A systematic economic-political project to eliminate the possibility of a Palestinian state",
+      },
+      methodology: {
+        title: "Rigorous reliability standards",
+        items: [
+          { icon: "📋", label: "Triple classification", text: "Every figure classified: Documented (primary sources) / Calculated (from documented data) / Estimated (historical periods)." },
+          { icon: "🔍", label: "Cross-verification", text: "Verified from at least two independent sources where possible, with clear acceptance and rejection criteria." },
+          { icon: "📉", label: "Conservative estimates", text: "Using minimum reasonable bounds for credibility, with declared error margins (±5% to ±40%)." },
+          { icon: "🔓", label: "Full transparency", text: "All methodologies and assumptions documented and verifiable by any independent researcher." },
+        ],
+      },
+    },
   },
 };
 
@@ -447,6 +557,7 @@ function SettlementDashboardInner() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [tocExpanded, setTocExpanded] = useState({});
+  const [aboutTab, setAboutTab] = useState("what");
   const t = T[lang];
   const isRTL = lang === "ar";
 
@@ -568,6 +679,219 @@ function SettlementDashboardInner() {
                     📑 {t.toc} →
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* About Study Section with Tabs */}
+            <div className="fade-in" style={{
+              background: "white", borderRadius: 20, overflow: "hidden",
+              border: `1px solid ${COLORS.gray[200]}`,
+              boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
+            }}>
+              {/* Section Header */}
+              <div style={{
+                padding: "24px 32px 0",
+                borderBottom: `1px solid ${COLORS.gray[100]}`,
+              }}>
+                <h2 style={{ fontSize: 22, fontWeight: 800, color: COLORS.black, marginBottom: 16 }}>
+                  📖 {t.aboutStudy}
+                </h2>
+                {/* Tabs */}
+                <div style={{
+                  display: "flex", gap: 0, overflowX: "auto",
+                  WebkitOverflowScrolling: "touch",
+                  scrollbarWidth: "none",
+                }}>
+                  {["what", "studied", "expanded", "achieved", "methodology"].map((tab) => (
+                    <button key={tab} onClick={() => setAboutTab(tab)} style={{
+                      padding: "10px 18px", border: "none", cursor: "pointer",
+                      background: aboutTab === tab ? "transparent" : "transparent",
+                      color: aboutTab === tab ? COLORS.red : COLORS.gray[500],
+                      fontWeight: aboutTab === tab ? 800 : 500,
+                      fontSize: 13, whiteSpace: "nowrap",
+                      borderBottom: aboutTab === tab ? `3px solid ${COLORS.red}` : "3px solid transparent",
+                      transition: "all 0.2s ease",
+                      fontFamily: "inherit",
+                    }}>
+                      {t.aboutTabs[tab]}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Tab Content */}
+              <div style={{ padding: "28px 32px 32px", minHeight: 200 }}>
+
+                {/* TAB: What */}
+                {aboutTab === "what" && (
+                  <div>
+                    <h3 style={{ fontSize: 18, fontWeight: 800, color: COLORS.black, marginBottom: 16, lineHeight: 1.5 }}>
+                      {t.aboutContent.what.title}
+                    </h3>
+                    <p style={{ fontSize: 15, lineHeight: 2, color: COLORS.gray[700] }}>
+                      {t.aboutContent.what.body}
+                    </p>
+                    <div style={{
+                      marginTop: 20, display: "flex", flexWrap: "wrap", gap: 8,
+                    }}>
+                      {["OCHA", "UNCTAD", "World Bank", "B'Tselem", "Peace Now", "ICAHD", "ARIJ", "PCBS", "CRS", "UNRWA", "BADIL", "Kerem Navot", "Adva Center"].map(s => (
+                        <span key={s} style={{
+                          padding: "4px 12px", borderRadius: 20,
+                          background: COLORS.gray[100], color: COLORS.gray[600],
+                          fontSize: 11, fontWeight: 600,
+                        }}>{s}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* TAB: Studied */}
+                {aboutTab === "studied" && (
+                  <div>
+                    <h3 style={{ fontSize: 16, fontWeight: 700, color: COLORS.gray[500], marginBottom: 20 }}>
+                      {t.aboutContent.studied.title}
+                    </h3>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 16 }}>
+                      {t.aboutContent.studied.items.map((item, i) => (
+                        <div key={i} style={{
+                          padding: 20, borderRadius: 16,
+                          background: COLORS.gray[50],
+                          border: `1px solid ${COLORS.gray[100]}`,
+                        }}>
+                          <div style={{ fontSize: 24, marginBottom: 8 }}>{item.icon}</div>
+                          <div style={{ fontSize: 14, fontWeight: 800, color: COLORS.black, marginBottom: 8 }}>
+                            {item.label}
+                          </div>
+                          <div style={{ fontSize: 13, lineHeight: 1.8, color: COLORS.gray[600] }}>
+                            {item.text}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* TAB: Expanded */}
+                {aboutTab === "expanded" && (
+                  <div>
+                    <h3 style={{ fontSize: 16, fontWeight: 700, color: COLORS.gray[500], marginBottom: 20 }}>
+                      {t.aboutContent.expanded.title}
+                    </h3>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                      {t.aboutContent.expanded.items.map((item, i) => (
+                        <div key={i} style={{
+                          display: "flex", gap: 16, alignItems: "flex-start",
+                          padding: 20, borderRadius: 16,
+                          background: `linear-gradient(135deg, ${COLORS.gray[50]} 0%, white 100%)`,
+                          border: `1px solid ${COLORS.gray[100]}`,
+                        }}>
+                          <div style={{
+                            minWidth: 56, height: 56, borderRadius: 16,
+                            background: COLORS.red + "10",
+                            display: "flex", alignItems: "center", justifyContent: "center",
+                            fontSize: 24,
+                          }}>{item.icon}</div>
+                          <div style={{ flex: 1 }}>
+                            <div style={{
+                              fontSize: 18, fontWeight: 900, color: COLORS.red,
+                              marginBottom: 6, fontFamily: "monospace",
+                            }}>{item.value}</div>
+                            <div style={{ fontSize: 13, lineHeight: 1.8, color: COLORS.gray[600] }}>
+                              {item.text}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* TAB: Achieved */}
+                {aboutTab === "achieved" && (
+                  <div>
+                    {/* 1:8 Equation Hero */}
+                    <div style={{
+                      background: `linear-gradient(135deg, ${COLORS.black} 0%, ${COLORS.redDark} 100%)`,
+                      borderRadius: 20, padding: "32px 28px", color: "white",
+                      textAlign: "center", marginBottom: 24,
+                    }}>
+                      <div style={{ fontSize: 14, opacity: 0.7, marginBottom: 8 }}>
+                        ⚖️ {t.aboutContent.achieved.title}
+                      </div>
+                      <div style={{ fontSize: 28, fontWeight: 900, marginBottom: 8 }}>
+                        {t.aboutContent.achieved.equation}
+                      </div>
+                      <div style={{ fontSize: 14, opacity: 0.6 }}>
+                        {t.aboutContent.achieved.equationSub}
+                      </div>
+                    </div>
+                    {/* 6 Conclusions */}
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 12 }}>
+                      {t.aboutContent.achieved.conclusions.map((c, i) => (
+                        <div key={i} style={{
+                          display: "flex", gap: 12, alignItems: "flex-start",
+                          padding: "14px 16px", borderRadius: 12,
+                          background: COLORS.gray[50],
+                          border: `1px solid ${COLORS.gray[100]}`,
+                        }}>
+                          <div style={{
+                            minWidth: 28, height: 28, borderRadius: 8,
+                            background: COLORS.red, color: "white",
+                            display: "flex", alignItems: "center", justifyContent: "center",
+                            fontSize: 13, fontWeight: 900,
+                          }}>{i + 1}</div>
+                          <div style={{ fontSize: 13, lineHeight: 1.7, color: COLORS.gray[700], fontWeight: 500 }}>
+                            {c}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    {/* Final Message */}
+                    <div style={{
+                      marginTop: 20, padding: "16px 24px", borderRadius: 12,
+                      background: COLORS.red + "08",
+                      border: `1px solid ${COLORS.red}22`,
+                      textAlign: "center",
+                    }}>
+                      <span style={{ fontSize: 14, fontWeight: 700, color: COLORS.red }}>
+                        💎 {t.aboutContent.achieved.finalMessage}
+                      </span>
+                    </div>
+                  </div>
+                )}
+
+                {/* TAB: Methodology */}
+                {aboutTab === "methodology" && (
+                  <div>
+                    <h3 style={{ fontSize: 16, fontWeight: 700, color: COLORS.gray[500], marginBottom: 20 }}>
+                      {t.aboutContent.methodology.title}
+                    </h3>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 16 }}>
+                      {t.aboutContent.methodology.items.map((item, i) => (
+                        <div key={i} style={{
+                          padding: 20, borderRadius: 16,
+                          background: COLORS.gray[50],
+                          border: `1px solid ${COLORS.gray[100]}`,
+                          position: "relative",
+                          overflow: "hidden",
+                        }}>
+                          <div style={{
+                            position: "absolute", top: 0, [isRTL ? "right" : "left"]: 0,
+                            width: 4, height: "100%",
+                            background: [COLORS.green, COLORS.accent.sky, COLORS.gold, COLORS.greenDark][i],
+                          }} />
+                          <div style={{ fontSize: 24, marginBottom: 10 }}>{item.icon}</div>
+                          <div style={{ fontSize: 14, fontWeight: 800, color: COLORS.black, marginBottom: 8 }}>
+                            {item.label}
+                          </div>
+                          <div style={{ fontSize: 13, lineHeight: 1.8, color: COLORS.gray[600] }}>
+                            {item.text}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
