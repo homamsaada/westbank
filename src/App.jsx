@@ -10,7 +10,7 @@ class ErrorBoundary extends React.Component {
       return (<div style={{ padding: 40, fontFamily: "monospace", background: "#fee", color: "#900", minHeight: "100vh" }}>
         <h2>⚠️ Dashboard Error</h2>
         <pre style={{ whiteSpace: "pre-wrap", marginTop: 20 }}>{String(this.state.error)}</pre>
-        <pre style={{ whiteSpace: "pre-wrap", marginTop: 10, fontSize: 12, color: "#666" }}>{this.state.error?.stack}</pre>
+        <pre style={{ whiteSpace: "pre-wrap", marginTop: 10, fontSize: 19, color: "#666" }}>{this.state.error?.stack}</pre>
       </div>);
     }
     return this.props.children;
@@ -583,6 +583,7 @@ function SettlementDashboardInner() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-thumb { background: ${COLORS.red}40; border-radius: 3px; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
@@ -594,20 +595,33 @@ function SettlementDashboardInner() {
         .hover-lift { transition: all 0.3s ease; }
         .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
         .glass { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); }
-        .nav-item { padding: 10px 18px; border-radius: 10px; cursor: pointer; transition: all 0.2s; font-weight: 500; font-size: 14px; }
+        .nav-item { padding: 10px 18px; border-radius: 10px; cursor: pointer; transition: all 0.2s; font-weight: 500; font-size: 16px; }
         .nav-item:hover { background: ${COLORS.red}15; }
         .nav-item.active { background: ${COLORS.red}; color: white; }
-        .section-title { font-size: 22px; font-weight: 800; margin-bottom: 20px; position: relative; padding-bottom: 12px; }
+        .section-title { font-size: 30px; font-weight: 800; margin-bottom: 20px; position: relative; padding-bottom: 12px; }
         .section-title::after { content: ''; position: absolute; bottom: 0; ${isRTL ? 'right' : 'left'}: 0; width: 60px; height: 4px; background: linear-gradient(90deg, ${COLORS.red}, ${COLORS.green}); border-radius: 2px; }
-        .card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 2px 20px rgba(0,0,0,0.06); border: 1px solid ${COLORS.gray[200]}; }
-        .kpi-card { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 2px 16px rgba(0,0,0,0.05); border: 1px solid ${COLORS.gray[200]}; position: relative; overflow: hidden; cursor: pointer; }
+        .card { background: white; border-radius: 16px; padding: 28px; box-shadow: 0 2px 20px rgba(0,0,0,0.06); border: 1px solid ${COLORS.gray[200]}; }
+        .kpi-card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 2px 16px rgba(0,0,0,0.05); border: 1px solid ${COLORS.gray[200]}; position: relative; overflow: hidden; cursor: pointer; }
         .kpi-card::before { content: ''; position: absolute; top: 0; ${isRTL ? 'right' : 'left'}: 0; width: 4px; height: 100%; border-radius: 0 2px 2px 0; }
-        .fact-card { background: linear-gradient(135deg, ${COLORS.black} 0%, ${COLORS.redDark} 100%); color: white; border-radius: 16px; padding: 24px; }
+        .fact-card { background: linear-gradient(135deg, ${COLORS.black} 0%, ${COLORS.redDark} 100%); color: white; border-radius: 16px; padding: 28px; }
         .timeline-dot { width: 16px; height: 16px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s; position: relative; z-index: 2; }
         .timeline-dot:hover { transform: scale(1.4); }
-        .chapter-card { background: white; border-radius: 16px; padding: 24px; cursor: pointer; border: 1px solid ${COLORS.gray[200]}; transition: all 0.3s; }
+        .chapter-card { background: white; border-radius: 16px; padding: 28px; cursor: pointer; border: 1px solid ${COLORS.gray[200]}; transition: all 0.3s; }
         .chapter-card:hover { border-color: ${COLORS.red}; box-shadow: 0 8px 32px rgba(192,57,43,0.1); transform: translateY(-2px); }
-        .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+        .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 15px; font-weight: 700; }
+        @media (max-width: 768px) {
+          html { font-size: 17px; }
+          .section-title { font-size: 26px; }
+          .nav-item { padding: 8px 12px; font-size: 15px; }
+          .kpi-card { padding: 20px; }
+          .card { padding: 20px; }
+          .chapter-card { padding: 20px; }
+        }
+        @media (max-width: 480px) {
+          html { font-size: 18px; }
+          .section-title { font-size: 24px; }
+          .nav-item { padding: 7px 10px; font-size: 14px; }
+        }
       `}</style>
 
       {/* ===== HEADER ===== */}
@@ -624,11 +638,11 @@ function SettlementDashboardInner() {
               width: 40, height: 40, borderRadius: 10,
               background: `linear-gradient(135deg, ${COLORS.red}, ${COLORS.black})`,
               display: "flex", alignItems: "center", justifyContent: "center",
-              color: "white", fontWeight: 900, fontSize: 18,
+              color: "white", fontWeight: 900, fontSize: 26,
             }}>58</div>
             <div>
-              <div style={{ fontWeight: 800, fontSize: 15, lineHeight: 1.2 }}>{STUDY_DATA.title[lang]}</div>
-              <div style={{ fontSize: 11, color: COLORS.gray[500] }}>{STUDY_DATA.subtitle[lang]}</div>
+              <div style={{ fontWeight: 800, fontSize: 22, lineHeight: 1.2 }}>{STUDY_DATA.title[lang]}</div>
+              <div style={{ fontSize: 18, color: COLORS.gray[500] }}>{STUDY_DATA.subtitle[lang]}</div>
             </div>
           </div>
 
@@ -644,7 +658,7 @@ function SettlementDashboardInner() {
             ))}
             <div style={{ width: 1, height: 24, background: COLORS.gray[300], margin: "0 8px" }} />
             <div className="nav-item" onClick={() => setLang(lang === "ar" ? "en" : "ar")}
-              style={{ fontWeight: 700, fontSize: 13 }}>
+              style={{ fontWeight: 700, fontSize: 20 }}>
               {t.lang}
             </div>
           </nav>
@@ -665,17 +679,17 @@ function SettlementDashboardInner() {
             }}>
               <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, opacity: 0.05, backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)" }} />
               <div style={{ position: "relative", zIndex: 1 }}>
-                <div className="badge" style={{ background: COLORS.red, color: "white", marginBottom: 16, fontSize: 12 }}>
+                <div className="badge" style={{ background: COLORS.red, color: "white", marginBottom: 16, fontSize: 19 }}>
                   {t.executiveSummary}
                 </div>
-                <h1 style={{ fontSize: 36, fontWeight: 900, lineHeight: 1.3, marginBottom: 16, maxWidth: 700 }}>
+                <h1 style={{ fontSize: 52, fontWeight: 900, lineHeight: 1.3, marginBottom: 16, maxWidth: 700 }}>
                   {STUDY_DATA.title[lang]}
                 </h1>
-                <p style={{ fontSize: 18, opacity: 0.9, lineHeight: 1.8, maxWidth: 700 }}>
+                <p style={{ fontSize: 26, opacity: 0.9, lineHeight: 1.8, maxWidth: 700 }}>
                   {t.summaryText}
                 </p>
                 <div style={{ display: "flex", gap: 12, marginTop: 24, flexWrap: "wrap" }}>
-                  <div onClick={() => setActivePage("toc")} style={{ padding: "10px 24px", background: COLORS.red, borderRadius: 12, cursor: "pointer", fontWeight: 700, fontSize: 14 }}>
+                  <div onClick={() => setActivePage("toc")} style={{ padding: "10px 24px", background: COLORS.red, borderRadius: 12, cursor: "pointer", fontWeight: 700, fontSize: 22 }}>
                     📑 {t.toc} →
                   </div>
                 </div>
@@ -693,7 +707,7 @@ function SettlementDashboardInner() {
                 padding: "24px 32px 0",
                 borderBottom: `1px solid ${COLORS.gray[100]}`,
               }}>
-                <h2 style={{ fontSize: 22, fontWeight: 800, color: COLORS.black, marginBottom: 16 }}>
+                <h2 style={{ fontSize: 30, fontWeight: 800, color: COLORS.black, marginBottom: 16 }}>
                   📖 {t.aboutStudy}
                 </h2>
                 {/* Tabs */}
@@ -708,7 +722,7 @@ function SettlementDashboardInner() {
                       background: aboutTab === tab ? "transparent" : "transparent",
                       color: aboutTab === tab ? COLORS.red : COLORS.gray[500],
                       fontWeight: aboutTab === tab ? 800 : 500,
-                      fontSize: 13, whiteSpace: "nowrap",
+                      fontSize: 20, whiteSpace: "nowrap",
                       borderBottom: aboutTab === tab ? `3px solid ${COLORS.red}` : "3px solid transparent",
                       transition: "all 0.2s ease",
                       fontFamily: "inherit",
@@ -725,10 +739,10 @@ function SettlementDashboardInner() {
                 {/* TAB: What */}
                 {aboutTab === "what" && (
                   <div>
-                    <h3 style={{ fontSize: 18, fontWeight: 800, color: COLORS.black, marginBottom: 16, lineHeight: 1.5 }}>
+                    <h3 style={{ fontSize: 26, fontWeight: 800, color: COLORS.black, marginBottom: 16, lineHeight: 1.5 }}>
                       {t.aboutContent.what.title}
                     </h3>
-                    <p style={{ fontSize: 15, lineHeight: 2, color: COLORS.gray[700] }}>
+                    <p style={{ fontSize: 22, lineHeight: 2, color: COLORS.gray[700] }}>
                       {t.aboutContent.what.body}
                     </p>
                     <div style={{
@@ -738,7 +752,7 @@ function SettlementDashboardInner() {
                         <span key={s} style={{
                           padding: "4px 12px", borderRadius: 20,
                           background: COLORS.gray[100], color: COLORS.gray[600],
-                          fontSize: 11, fontWeight: 600,
+                          fontSize: 18, fontWeight: 600,
                         }}>{s}</span>
                       ))}
                     </div>
@@ -748,7 +762,7 @@ function SettlementDashboardInner() {
                 {/* TAB: Studied */}
                 {aboutTab === "studied" && (
                   <div>
-                    <h3 style={{ fontSize: 16, fontWeight: 700, color: COLORS.gray[500], marginBottom: 20 }}>
+                    <h3 style={{ fontSize: 24, fontWeight: 700, color: COLORS.gray[500], marginBottom: 20 }}>
                       {t.aboutContent.studied.title}
                     </h3>
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 16 }}>
@@ -758,11 +772,11 @@ function SettlementDashboardInner() {
                           background: COLORS.gray[50],
                           border: `1px solid ${COLORS.gray[100]}`,
                         }}>
-                          <div style={{ fontSize: 24, marginBottom: 8 }}>{item.icon}</div>
-                          <div style={{ fontSize: 14, fontWeight: 800, color: COLORS.black, marginBottom: 8 }}>
+                          <div style={{ fontSize: 34, marginBottom: 8 }}>{item.icon}</div>
+                          <div style={{ fontSize: 22, fontWeight: 800, color: COLORS.black, marginBottom: 8 }}>
                             {item.label}
                           </div>
-                          <div style={{ fontSize: 13, lineHeight: 1.8, color: COLORS.gray[600] }}>
+                          <div style={{ fontSize: 20, lineHeight: 1.8, color: COLORS.gray[600] }}>
                             {item.text}
                           </div>
                         </div>
@@ -774,7 +788,7 @@ function SettlementDashboardInner() {
                 {/* TAB: Expanded */}
                 {aboutTab === "expanded" && (
                   <div>
-                    <h3 style={{ fontSize: 16, fontWeight: 700, color: COLORS.gray[500], marginBottom: 20 }}>
+                    <h3 style={{ fontSize: 24, fontWeight: 700, color: COLORS.gray[500], marginBottom: 20 }}>
                       {t.aboutContent.expanded.title}
                     </h3>
                     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
@@ -789,14 +803,14 @@ function SettlementDashboardInner() {
                             minWidth: 56, height: 56, borderRadius: 16,
                             background: COLORS.red + "10",
                             display: "flex", alignItems: "center", justifyContent: "center",
-                            fontSize: 24,
+                            fontSize: 34,
                           }}>{item.icon}</div>
                           <div style={{ flex: 1 }}>
                             <div style={{
-                              fontSize: 18, fontWeight: 900, color: COLORS.red,
+                              fontSize: 26, fontWeight: 900, color: COLORS.red,
                               marginBottom: 6, fontFamily: "monospace",
                             }}>{item.value}</div>
-                            <div style={{ fontSize: 13, lineHeight: 1.8, color: COLORS.gray[600] }}>
+                            <div style={{ fontSize: 20, lineHeight: 1.8, color: COLORS.gray[600] }}>
                               {item.text}
                             </div>
                           </div>
@@ -815,13 +829,13 @@ function SettlementDashboardInner() {
                       borderRadius: 20, padding: "32px 28px", color: "white",
                       textAlign: "center", marginBottom: 24,
                     }}>
-                      <div style={{ fontSize: 14, opacity: 0.7, marginBottom: 8 }}>
+                      <div style={{ fontSize: 22, opacity: 0.7, marginBottom: 8 }}>
                         ⚖️ {t.aboutContent.achieved.title}
                       </div>
-                      <div style={{ fontSize: 28, fontWeight: 900, marginBottom: 8 }}>
+                      <div style={{ fontSize: 40, fontWeight: 900, marginBottom: 8 }}>
                         {t.aboutContent.achieved.equation}
                       </div>
-                      <div style={{ fontSize: 14, opacity: 0.6 }}>
+                      <div style={{ fontSize: 22, opacity: 0.6 }}>
                         {t.aboutContent.achieved.equationSub}
                       </div>
                     </div>
@@ -838,9 +852,9 @@ function SettlementDashboardInner() {
                             minWidth: 28, height: 28, borderRadius: 8,
                             background: COLORS.red, color: "white",
                             display: "flex", alignItems: "center", justifyContent: "center",
-                            fontSize: 13, fontWeight: 900,
+                            fontSize: 20, fontWeight: 900,
                           }}>{i + 1}</div>
-                          <div style={{ fontSize: 13, lineHeight: 1.7, color: COLORS.gray[700], fontWeight: 500 }}>
+                          <div style={{ fontSize: 20, lineHeight: 1.7, color: COLORS.gray[700], fontWeight: 500 }}>
                             {c}
                           </div>
                         </div>
@@ -853,7 +867,7 @@ function SettlementDashboardInner() {
                       border: `1px solid ${COLORS.red}22`,
                       textAlign: "center",
                     }}>
-                      <span style={{ fontSize: 14, fontWeight: 700, color: COLORS.red }}>
+                      <span style={{ fontSize: 22, fontWeight: 700, color: COLORS.red }}>
                         💎 {t.aboutContent.achieved.finalMessage}
                       </span>
                     </div>
@@ -863,7 +877,7 @@ function SettlementDashboardInner() {
                 {/* TAB: Methodology */}
                 {aboutTab === "methodology" && (
                   <div>
-                    <h3 style={{ fontSize: 16, fontWeight: 700, color: COLORS.gray[500], marginBottom: 20 }}>
+                    <h3 style={{ fontSize: 24, fontWeight: 700, color: COLORS.gray[500], marginBottom: 20 }}>
                       {t.aboutContent.methodology.title}
                     </h3>
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 16 }}>
@@ -880,11 +894,11 @@ function SettlementDashboardInner() {
                             width: 4, height: "100%",
                             background: [COLORS.green, COLORS.accent.sky, COLORS.gold, COLORS.greenDark][i],
                           }} />
-                          <div style={{ fontSize: 24, marginBottom: 10 }}>{item.icon}</div>
-                          <div style={{ fontSize: 14, fontWeight: 800, color: COLORS.black, marginBottom: 8 }}>
+                          <div style={{ fontSize: 34, marginBottom: 10 }}>{item.icon}</div>
+                          <div style={{ fontSize: 22, fontWeight: 800, color: COLORS.black, marginBottom: 8 }}>
                             {item.label}
                           </div>
-                          <div style={{ fontSize: 13, lineHeight: 1.8, color: COLORS.gray[600] }}>
+                          <div style={{ fontSize: 20, lineHeight: 1.8, color: COLORS.gray[600] }}>
                             {item.text}
                           </div>
                         </div>
@@ -905,23 +919,23 @@ function SettlementDashboardInner() {
                     <div style={{ position: "absolute", top: 0, [isRTL ? "right" : "left"]: 0, width: 4, height: "100%", background: kpi.color, borderRadius: isRTL ? "0 2px 2px 0" : "2px 0 0 2px" }} />
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
                       <div>
-                        <div style={{ fontSize: 13, color: COLORS.gray[500], marginBottom: 4, fontWeight: 500 }}>
+                        <div style={{ fontSize: 20, color: COLORS.gray[500], marginBottom: 4, fontWeight: 500 }}>
                           {kpi.icon} {kpi.label[lang]}
                         </div>
-                        <div style={{ fontSize: 32, fontWeight: 900, color: kpi.color, lineHeight: 1.1 }}>
+                        <div style={{ fontSize: 48, fontWeight: 900, color: kpi.color, lineHeight: 1.1 }}>
                           <AnimatedCounter value={kpi.value} />
                         </div>
                       </div>
                       <div style={{
                         padding: "4px 10px", borderRadius: 8,
                         background: kpi.color + "12", color: kpi.color,
-                        fontSize: 12, fontWeight: 700, textAlign: "center",
+                        fontSize: 19, fontWeight: 700, textAlign: "center",
                       }}>
                         <div>{kpi.change}</div>
-                        <div style={{ fontSize: 10, opacity: 0.7 }}>{kpi.changeLabel[lang]}</div>
+                        <div style={{ fontSize: 17, opacity: 0.7 }}>{kpi.changeLabel[lang]}</div>
                       </div>
                     </div>
-                    <div style={{ fontSize: 10, color: COLORS.gray[400], marginTop: 8 }}>
+                    <div style={{ fontSize: 17, color: COLORS.gray[400], marginTop: 8 }}>
                       {t.source}: {kpi.source}
                     </div>
                   </div>
@@ -933,7 +947,7 @@ function SettlementDashboardInner() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
               {/* Settlers Growth Chart */}
               <div className="card fade-in">
-                <h3 className="section-title" style={{ fontSize: 18 }}>{t.settlersGrowth}</h3>
+                <h3 className="section-title" style={{ fontSize: 26 }}>{t.settlersGrowth}</h3>
                 <div style={{ width: "100%", height: 360 }}>
                   <ResponsiveContainer>
                     <AreaChart data={STUDY_DATA.settlersGrowth}>
@@ -944,8 +958,8 @@ function SettlementDashboardInner() {
                         </linearGradient>
                       </defs>
                       <CartesianGrid strokeDasharray="3 3" stroke={COLORS.gray[200]} />
-                      <XAxis dataKey="year" tick={{ fontSize: 11, fill: COLORS.gray[600] }} reversed={isRTL} />
-                      <YAxis tickFormatter={v => v >= 1000 ? `${(v / 1000).toFixed(0)}K` : v} tick={{ fontSize: 11, fill: COLORS.gray[600] }} orientation={isRTL ? "right" : "left"} />
+                      <XAxis dataKey="year" tick={{ fontSize: 14, fill: COLORS.gray[600] }} reversed={isRTL} />
+                      <YAxis tickFormatter={v => v >= 1000 ? `${(v / 1000).toFixed(0)}K` : v} tick={{ fontSize: 14, fill: COLORS.gray[600] }} orientation={isRTL ? "right" : "left"} />
                       <Tooltip
                         contentStyle={{ borderRadius: 12, border: "none", boxShadow: "0 4px 20px rgba(0,0,0,0.1)", direction: isRTL ? "rtl" : "ltr" }}
                         formatter={(v) => [v.toLocaleString(), lang === "ar" ? "مستوطن" : "Settlers"]}
@@ -958,7 +972,7 @@ function SettlementDashboardInner() {
 
               {/* Spending Pie */}
               <div className="card fade-in">
-                <h3 className="section-title" style={{ fontSize: 18 }}>{t.spendingBreakdown}</h3>
+                <h3 className="section-title" style={{ fontSize: 26 }}>{t.spendingBreakdown}</h3>
                 <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
                   <div style={{ width: "50%", height: 320 }}>
                     <ResponsiveContainer>
@@ -973,16 +987,16 @@ function SettlementDashboardInner() {
                   </div>
                   <div style={{ flex: 1 }}>
                     {spendingPieData.map((s, i) => (
-                      <div key={i} style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10, fontSize: 12 }}>
+                      <div key={i} style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10, fontSize: 19 }}>
                         <div style={{ width: 10, height: 10, borderRadius: 3, background: s.color, flexShrink: 0 }} />
                         <span style={{ flex: 1, color: COLORS.gray[700] }}>{s.name}</span>
                         <span style={{ fontWeight: 700, color: COLORS.gray[800] }}>{s.pct}</span>
                       </div>
                     ))}
                     <div style={{ marginTop: 16, padding: "12px 16px", background: COLORS.red + "08", borderRadius: 10, border: `1px solid ${COLORS.red}20` }}>
-                      <div style={{ fontSize: 11, color: COLORS.gray[500] }}>{t.total}</div>
-                      <div style={{ fontSize: 24, fontWeight: 900, color: COLORS.red }}>$48.5-71.6B</div>
-                      <div style={{ fontSize: 11, color: COLORS.gray[500] }}>1967-2025</div>
+                      <div style={{ fontSize: 18, color: COLORS.gray[500] }}>{t.total}</div>
+                      <div style={{ fontSize: 34, fontWeight: 900, color: COLORS.red }}>$48.5-71.6B</div>
+                      <div style={{ fontSize: 18, color: COLORS.gray[500] }}>1967-2025</div>
                     </div>
                   </div>
                 </div>
@@ -993,13 +1007,13 @@ function SettlementDashboardInner() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
               {/* Violence Surge */}
               <div className="card fade-in">
-                <h3 className="section-title" style={{ fontSize: 18 }}>{t.violenceSurge}</h3>
+                <h3 className="section-title" style={{ fontSize: 26 }}>{t.violenceSurge}</h3>
                 <div style={{ width: "100%", height: 320 }}>
                   <ResponsiveContainer>
                     <BarChart data={STUDY_DATA.violenceData}>
                       <CartesianGrid strokeDasharray="3 3" stroke={COLORS.gray[200]} />
-                      <XAxis dataKey="year" tick={{ fontSize: 11, fill: COLORS.gray[600] }} reversed={isRTL} />
-                      <YAxis tick={{ fontSize: 11, fill: COLORS.gray[600] }} orientation={isRTL ? "right" : "left"} />
+                      <XAxis dataKey="year" tick={{ fontSize: 14, fill: COLORS.gray[600] }} reversed={isRTL} />
+                      <YAxis tick={{ fontSize: 14, fill: COLORS.gray[600] }} orientation={isRTL ? "right" : "left"} />
                       <Tooltip contentStyle={{ borderRadius: 12, border: "none", direction: isRTL ? "rtl" : "ltr" }}
                         formatter={(v) => [v.toLocaleString(), lang === "ar" ? "حادثة" : "Incidents"]} />
                       <Bar dataKey="incidents" radius={[6, 6, 0, 0]}>
@@ -1010,20 +1024,20 @@ function SettlementDashboardInner() {
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
-                <div style={{ textAlign: "center", fontSize: 12, color: COLORS.gray[500], marginTop: 8 }}>
+                <div style={{ textAlign: "center", fontSize: 19, color: COLORS.gray[500], marginTop: 8 }}>
                   {lang === "ar" ? "* 2024: النصف الأول فقط (يناير-يوليو)" : "* 2024: First half only (Jan-Jul)"}
                 </div>
               </div>
 
               {/* Annual Spending */}
               <div className="card fade-in">
-                <h3 className="section-title" style={{ fontSize: 18 }}>{t.annualSpending}</h3>
+                <h3 className="section-title" style={{ fontSize: 26 }}>{t.annualSpending}</h3>
                 <div style={{ width: "100%", height: 320 }}>
                   <ResponsiveContainer>
                     <ComposedChart data={STUDY_DATA.spendingTimeline}>
                       <CartesianGrid strokeDasharray="3 3" stroke={COLORS.gray[200]} />
-                      <XAxis dataKey="period" tick={{ fontSize: 10, fill: COLORS.gray[600] }} reversed={isRTL} />
-                      <YAxis tick={{ fontSize: 11, fill: COLORS.gray[600] }} orientation={isRTL ? "right" : "left"} />
+                      <XAxis dataKey="period" tick={{ fontSize: 14, fill: COLORS.gray[600] }} reversed={isRTL} />
+                      <YAxis tick={{ fontSize: 14, fill: COLORS.gray[600] }} orientation={isRTL ? "right" : "left"} />
                       <Tooltip contentStyle={{ borderRadius: 12, border: "none", direction: isRTL ? "rtl" : "ltr" }}
                         formatter={(v, name) => [`$${v}M`, name === "annual" ? (lang === "ar" ? "المعدل السنوي" : "Annual Avg") : ""]} />
                       <Bar dataKey="annual" radius={[6, 6, 0, 0]}>
@@ -1050,9 +1064,9 @@ function SettlementDashboardInner() {
                       onClick={() => setActivePhase(activePhase === i ? null : i)}>
                       <div className="timeline-dot" style={{ background: phase.color, marginBottom: 12 }} />
                       <div style={{ textAlign: "center", maxWidth: 130 }}>
-                        <div style={{ fontSize: 10, fontWeight: 700, color: phase.color }}>{phase.period}</div>
-                        <div style={{ fontSize: 11, fontWeight: 600, marginTop: 2, lineHeight: 1.3 }}>{phase.name[lang]}</div>
-                        <div style={{ fontSize: 10, color: COLORS.gray[500], marginTop: 2 }}>{phase.start.toLocaleString()} → {phase.end.toLocaleString()}</div>
+                        <div style={{ fontSize: 17, fontWeight: 700, color: phase.color }}>{phase.period}</div>
+                        <div style={{ fontSize: 18, fontWeight: 600, marginTop: 2, lineHeight: 1.3 }}>{phase.name[lang]}</div>
+                        <div style={{ fontSize: 17, color: COLORS.gray[500], marginTop: 2 }}>{phase.start.toLocaleString()} → {phase.end.toLocaleString()}</div>
                         {phase.growth !== "∞" && phase.growth !== "قياسي" && (
                           <div className="badge" style={{ background: COLORS.red + "15", color: COLORS.red, marginTop: 4 }}>+{phase.growth}</div>
                         )}
@@ -1061,7 +1075,7 @@ function SettlementDashboardInner() {
                         <div className="slide-in" style={{
                           marginTop: 12, padding: 16, background: "white", borderRadius: 12,
                           boxShadow: "0 8px 32px rgba(0,0,0,0.12)", border: `2px solid ${phase.color}`,
-                          maxWidth: 200, fontSize: 12, lineHeight: 1.6, textAlign: isRTL ? "right" : "left",
+                          maxWidth: 200, fontSize: 19, lineHeight: 1.6, textAlign: isRTL ? "right" : "left",
                         }}>
                           {phase.event[lang]}
                         </div>
@@ -1078,8 +1092,8 @@ function SettlementDashboardInner() {
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 16 }}>
                 {STUDY_DATA.shockingComparisons.map((fact, i) => (
                   <div key={i} className="fact-card hover-lift fade-in" style={{ animationDelay: `${i * 0.1}s`, animationFillMode: "both" }}>
-                    <div style={{ fontSize: 28, marginBottom: 12 }}>💎</div>
-                    <div style={{ fontSize: 15, fontWeight: 500, lineHeight: 1.8, opacity: 0.95 }}>
+                    <div style={{ fontSize: 40, marginBottom: 12 }}>💎</div>
+                    <div style={{ fontSize: 22, fontWeight: 500, lineHeight: 1.8, opacity: 0.95 }}>
                       {fact[lang]}
                     </div>
                   </div>
@@ -1095,7 +1109,7 @@ function SettlementDashboardInner() {
         {/* === TOC PAGE === */}
         {activePage === "toc" && (
           <div className="fade-in">
-            <h2 className="section-title" style={{ fontSize: 28 }}>{lang === "ar" ? "الفهرس التفاعلي" : "Interactive Table of Contents"}</h2>
+            <h2 className="section-title" style={{ fontSize: 40 }}>{lang === "ar" ? "الفهرس التفاعلي" : "Interactive Table of Contents"}</h2>
             <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
               {STUDY_DATA.chapters.map((ch, ci) => (
                 <div key={ch.id} className="card" style={{ borderInlineStart: `4px solid ${CHART_COLORS[ci]}` }}>
@@ -1104,11 +1118,11 @@ function SettlementDashboardInner() {
                       width: 56, height: 56, borderRadius: 14,
                       background: `linear-gradient(135deg, ${CHART_COLORS[ci]}, ${CHART_COLORS[ci]}88)`,
                       display: "flex", alignItems: "center", justifyContent: "center",
-                      color: "white", fontWeight: 900, fontSize: 24,
+                      color: "white", fontWeight: 900, fontSize: 34,
                     }}>{ch.bab}</div>
                     <div>
-                      <div style={{ fontSize: 12, color: COLORS.gray[500] }}>{lang === "ar" ? `الباب ${ch.bab}` : `Part ${ch.bab}`}</div>
-                      <div style={{ fontSize: 22, fontWeight: 800 }}>{ch.title[lang]}</div>
+                      <div style={{ fontSize: 19, color: COLORS.gray[500] }}>{lang === "ar" ? `الباب ${ch.bab}` : `Part ${ch.bab}`}</div>
+                      <div style={{ fontSize: 30, fontWeight: 800 }}>{ch.title[lang]}</div>
                     </div>
                   </div>
                   {ch.sections.map(sec => (
@@ -1116,7 +1130,7 @@ function SettlementDashboardInner() {
                       <div onClick={() => toggleToc(sec.id + "-toc")} style={{
                         display: "flex", alignItems: "center", gap: 10, cursor: "pointer",
                         padding: "12px 16px", borderRadius: 12, background: COLORS.gray[50],
-                        fontWeight: 700, fontSize: 15, color: COLORS.gray[800],
+                        fontWeight: 700, fontSize: 22, color: COLORS.gray[800],
                         transition: "background 0.2s",
                       }}
                         onMouseEnter={e => e.currentTarget.style.background = COLORS.gray[100]}
@@ -1132,21 +1146,21 @@ function SettlementDashboardInner() {
                           {sec.items.map(item => (
                             <div key={item.id}>
                               <div onClick={() => toggleToc(item.id + "-sum")} className="hover-lift" style={{
-                                fontSize: 14, color: COLORS.gray[700], cursor: "pointer",
+                                fontSize: 22, color: COLORS.gray[700], cursor: "pointer",
                                 padding: "10px 16px", borderRadius: tocExpanded[item.id + "-sum"] ? "10px 10px 0 0" : 10, background: tocExpanded[item.id + "-sum"] ? CHART_COLORS[ci] + "08" : "white",
                                 border: `1px solid ${tocExpanded[item.id + "-sum"] ? CHART_COLORS[ci] + "30" : COLORS.gray[200]}`,
                                 display: "flex", alignItems: "center", gap: 8,
                                 transition: "all 0.2s",
                               }}>
-                                <span style={{ color: CHART_COLORS[ci], fontWeight: 700, fontSize: 13, minWidth: 30 }}>{item.id}</span>
+                                <span style={{ color: CHART_COLORS[ci], fontWeight: 700, fontSize: 20, minWidth: 30 }}>{item.id}</span>
                                 {item.title[lang]}
-                                <span style={{ marginInlineStart: "auto", fontSize: 11, color: tocExpanded[item.id + "-sum"] ? CHART_COLORS[ci] : COLORS.gray[400], transition: "0.2s", transform: tocExpanded[item.id + "-sum"] ? "rotate(90deg)" : "rotate(0)", display: "inline-block" }}>
+                                <span style={{ marginInlineStart: "auto", fontSize: 18, color: tocExpanded[item.id + "-sum"] ? CHART_COLORS[ci] : COLORS.gray[400], transition: "0.2s", transform: tocExpanded[item.id + "-sum"] ? "rotate(90deg)" : "rotate(0)", display: "inline-block" }}>
                                   {item.summary ? "▶" : "→"}
                                 </span>
                               </div>
                               {tocExpanded[item.id + "-sum"] && item.summary && (
                                 <div style={{
-                                  padding: "14px 18px", fontSize: 13, lineHeight: 1.8,
+                                  padding: "14px 18px", fontSize: 20, lineHeight: 1.8,
                                   color: COLORS.gray[600], background: CHART_COLORS[ci] + "05",
                                   borderRadius: "0 0 10px 10px",
                                   border: `1px solid ${CHART_COLORS[ci]}20`, borderTop: "none",
@@ -1171,15 +1185,15 @@ function SettlementDashboardInner() {
         {/* === VISUALS PAGE === */}
         {activePage === "visuals" && (
           <div className="fade-in">
-            <h2 className="section-title" style={{ fontSize: 28 }}>{lang === "ar" ? "مكتبة الرسوم والإنفوغرافيك" : "Visual & Infographic Library"}</h2>
+            <h2 className="section-title" style={{ fontSize: 40 }}>{lang === "ar" ? "مكتبة الرسوم والإنفوغرافيك" : "Visual & Infographic Library"}</h2>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(450px, 1fr))", gap: 24 }}>
               {/* Chart 1 */}
               <div className="card hover-lift">
                 <div className="badge" style={{ background: COLORS.red + "15", color: COLORS.red, marginBottom: 12 }}>
                   {lang === "ar" ? "رسم خطي" : "Line Chart"}
                 </div>
-                <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>{t.settlersGrowth}</h3>
-                <p style={{ fontSize: 12, color: COLORS.gray[500], marginBottom: 16 }}>
+                <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 4 }}>{t.settlersGrowth}</h3>
+                <p style={{ fontSize: 19, color: COLORS.gray[500], marginBottom: 16 }}>
                   {lang === "ar" ? "من صفر إلى 750 ألف: المنحنى المتسارع" : "From zero to 750K: The accelerating curve"}
                 </p>
                 <div style={{ height: 280 }}>
@@ -1192,8 +1206,8 @@ function SettlementDashboardInner() {
                         </linearGradient>
                       </defs>
                       <CartesianGrid strokeDasharray="3 3" stroke={COLORS.gray[200]} />
-                      <XAxis dataKey="year" tick={{ fontSize: 10 }} reversed={isRTL} />
-                      <YAxis tickFormatter={v => `${(v/1000).toFixed(0)}K`} tick={{ fontSize: 10 }} orientation={isRTL ? "right" : "left"} />
+                      <XAxis dataKey="year" tick={{ fontSize: 14 }} reversed={isRTL} />
+                      <YAxis tickFormatter={v => `${(v/1000).toFixed(0)}K`} tick={{ fontSize: 14 }} orientation={isRTL ? "right" : "left"} />
                       <Tooltip contentStyle={{ borderRadius: 10, border: "none" }} />
                       <Area type="monotone" dataKey="settlers" stroke={COLORS.red} strokeWidth={2.5} fill="url(#sg2)" />
                     </AreaChart>
@@ -1206,8 +1220,8 @@ function SettlementDashboardInner() {
                 <div className="badge" style={{ background: COLORS.greenDark + "15", color: COLORS.greenDark, marginBottom: 12 }}>
                   {lang === "ar" ? "رسم دائري" : "Pie Chart"}
                 </div>
-                <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>{t.spendingBreakdown}</h3>
-                <p style={{ fontSize: 12, color: COLORS.gray[500], marginBottom: 16 }}>
+                <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 4 }}>{t.spendingBreakdown}</h3>
+                <p style={{ fontSize: 19, color: COLORS.gray[500], marginBottom: 16 }}>
                   {lang === "ar" ? "48.5-71.6 مليار دولار: أين ذهبت الأموال؟" : "$48.5-71.6B: Where did the money go?"}
                 </p>
                 <div style={{ height: 280 }}>
@@ -1217,7 +1231,7 @@ function SettlementDashboardInner() {
                         {spendingPieData.map((e, i) => <Cell key={i} fill={e.color} />)}
                       </Pie>
                       <Tooltip contentStyle={{ borderRadius: 10 }} formatter={(v) => [`$${v.toFixed(1)}B`]} />
-                      <Legend formatter={(v) => <span style={{ fontSize: 11 }}>{v}</span>} />
+                      <Legend formatter={(v) => <span style={{ fontSize: 18 }}>{v}</span>} />
                     </PieChart>
                   </ResponsiveContainer>
                 </div>
@@ -1228,16 +1242,16 @@ function SettlementDashboardInner() {
                 <div className="badge" style={{ background: COLORS.redLight + "15", color: COLORS.redLight, marginBottom: 12 }}>
                   {lang === "ar" ? "رسم أعمدة" : "Bar Chart"}
                 </div>
-                <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>{t.violenceSurge}</h3>
-                <p style={{ fontSize: 12, color: COLORS.gray[500], marginBottom: 16 }}>
+                <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 4 }}>{t.violenceSurge}</h3>
+                <p style={{ fontSize: 19, color: COLORS.gray[500], marginBottom: 16 }}>
                   {lang === "ar" ? "+451% في عقد واحد: تسارع أسّي" : "+451% in one decade: Exponential surge"}
                 </p>
                 <div style={{ height: 280 }}>
                   <ResponsiveContainer>
                     <BarChart data={STUDY_DATA.violenceData}>
                       <CartesianGrid strokeDasharray="3 3" stroke={COLORS.gray[200]} />
-                      <XAxis dataKey="year" tick={{ fontSize: 10 }} reversed={isRTL} />
-                      <YAxis tick={{ fontSize: 10 }} orientation={isRTL ? "right" : "left"} />
+                      <XAxis dataKey="year" tick={{ fontSize: 14 }} reversed={isRTL} />
+                      <YAxis tick={{ fontSize: 14 }} orientation={isRTL ? "right" : "left"} />
                       <Tooltip contentStyle={{ borderRadius: 10 }} />
                       <Bar dataKey="incidents" radius={[6, 6, 0, 0]}>
                         {STUDY_DATA.violenceData.map((e, i) => (
@@ -1254,16 +1268,16 @@ function SettlementDashboardInner() {
                 <div className="badge" style={{ background: COLORS.accent.sky + "15", color: COLORS.accent.sky, marginBottom: 12 }}>
                   {lang === "ar" ? "رسم مركّب" : "Composed Chart"}
                 </div>
-                <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>{t.annualSpending}</h3>
-                <p style={{ fontSize: 12, color: COLORS.gray[500], marginBottom: 16 }}>
+                <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 4 }}>{t.annualSpending}</h3>
+                <p style={{ fontSize: 19, color: COLORS.gray[500], marginBottom: 16 }}>
                   {lang === "ar" ? "من 50 إلى 633 مليون $/سنة: تضاعف 12 مرة" : "From $50M to $633M/year: 12x increase"}
                 </p>
                 <div style={{ height: 280 }}>
                   <ResponsiveContainer>
                     <BarChart data={STUDY_DATA.spendingTimeline}>
                       <CartesianGrid strokeDasharray="3 3" stroke={COLORS.gray[200]} />
-                      <XAxis dataKey="period" tick={{ fontSize: 9 }} reversed={isRTL} />
-                      <YAxis tick={{ fontSize: 10 }} orientation={isRTL ? "right" : "left"} />
+                      <XAxis dataKey="period" tick={{ fontSize: 13 }} reversed={isRTL} />
+                      <YAxis tick={{ fontSize: 14 }} orientation={isRTL ? "right" : "left"} />
                       <Tooltip contentStyle={{ borderRadius: 10 }} formatter={(v) => [`$${v}M`]} />
                       <Bar dataKey="annual" radius={[6, 6, 0, 0]}>
                         {STUDY_DATA.spendingTimeline.map((e, i) => (
@@ -1280,10 +1294,10 @@ function SettlementDashboardInner() {
                 <div className="badge" style={{ background: COLORS.redDark + "15", color: COLORS.redDark, marginBottom: 12 }}>
                   {lang === "ar" ? "إنفوغرافيك تفاعلي" : "Interactive Infographic"}
                 </div>
-                <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 4 }}>
+                <h3 style={{ fontSize: 26, fontWeight: 700, marginBottom: 4 }}>
                   {lang === "ar" ? "خسائر الأعمار البشرية على الحواجز" : "Human Lifetime Losses at Checkpoints"}
                 </h3>
-                <p style={{ fontSize: 12, color: COLORS.gray[500], marginBottom: 8 }}>
+                <p style={{ fontSize: 19, color: COLORS.gray[500], marginBottom: 8 }}>
                   {lang === "ar" ? "8.1 مليار ساعة = 13,200 حياة بشرية كاملة ضاعت في الانتظار (1967-2025)" : "8.1 billion hours = 13,200 full human lives lost waiting (1967-2025)"}
                 </p>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16, marginBottom: 20 }}>
@@ -1293,8 +1307,8 @@ function SettlementDashboardInner() {
                     { val: "$39.2B", labelAr: "تكلفة اقتصادية مباشرة", labelEn: "direct economic cost", color: COLORS.black },
                   ].map((s, i) => (
                     <div key={i} style={{ textAlign: "center", padding: 16, borderRadius: 14, background: s.color + "08", border: `1px solid ${s.color}15` }}>
-                      <div style={{ fontSize: 28, fontWeight: 900, color: s.color }}>{s.val}</div>
-                      <div style={{ fontSize: 11, color: COLORS.gray[600], marginTop: 4 }}>{lang === "ar" ? s.labelAr : s.labelEn}</div>
+                      <div style={{ fontSize: 40, fontWeight: 900, color: s.color }}>{s.val}</div>
+                      <div style={{ fontSize: 18, color: COLORS.gray[600], marginTop: 4 }}>{lang === "ar" ? s.labelAr : s.labelEn}</div>
                     </div>
                   ))}
                 </div>
@@ -1308,11 +1322,11 @@ function SettlementDashboardInner() {
                         </linearGradient>
                       </defs>
                       <CartesianGrid strokeDasharray="3 3" stroke={COLORS.gray[200]} />
-                      <XAxis dataKey={lang === "ar" ? "event" : "eventEn"} tick={{ fontSize: 9, fill: COLORS.gray[600] }} reversed={isRTL} angle={lang === "ar" ? 0 : 0} />
-                      <YAxis yAxisId="hours" tick={{ fontSize: 10, fill: COLORS.red }} orientation={isRTL ? "right" : "left"}
-                        label={{ value: lang === "ar" ? "مليار ساعة" : "Billion hours", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: COLORS.red }, dx: isRTL ? 15 : -15 }} />
-                      <YAxis yAxisId="cost" tick={{ fontSize: 10, fill: COLORS.black }} orientation={isRTL ? "left" : "right"}
-                        label={{ value: lang === "ar" ? "مليار $" : "Billion $", angle: 90, position: "insideRight", style: { fontSize: 10, fill: COLORS.black }, dx: isRTL ? -15 : 15 }} />
+                      <XAxis dataKey={lang === "ar" ? "event" : "eventEn"} tick={{ fontSize: 13, fill: COLORS.gray[600] }} reversed={isRTL} angle={lang === "ar" ? 0 : 0} />
+                      <YAxis yAxisId="hours" tick={{ fontSize: 14, fill: COLORS.red }} orientation={isRTL ? "right" : "left"}
+                        label={{ value: lang === "ar" ? "مليار ساعة" : "Billion hours", angle: -90, position: "insideLeft", style: { fontSize: 13, fill: COLORS.red }, dx: isRTL ? 15 : -15 }} />
+                      <YAxis yAxisId="cost" tick={{ fontSize: 14, fill: COLORS.black }} orientation={isRTL ? "left" : "right"}
+                        label={{ value: lang === "ar" ? "مليار $" : "Billion $", angle: 90, position: "insideRight", style: { fontSize: 13, fill: COLORS.black }, dx: isRTL ? -15 : 15 }} />
                       <Tooltip contentStyle={{ borderRadius: 12, border: "none", direction: isRTL ? "rtl" : "ltr" }}
                         formatter={(v, name) => [`${v} ${lang === "ar" ? "مليار" : "B"}`, name === "hours" ? (lang === "ar" ? "الساعات" : "Hours") : (lang === "ar" ? "التكلفة $" : "Cost $")]} />
                       <Bar yAxisId="hours" dataKey="hours" fill="url(#hoursGrad)" stroke={COLORS.red} strokeWidth={1} radius={[6, 6, 0, 0]} barSize={50} />
@@ -1320,7 +1334,7 @@ function SettlementDashboardInner() {
                     </ComposedChart>
                   </ResponsiveContainer>
                 </div>
-                <div style={{ marginTop: 12, padding: "12px 16px", borderRadius: 12, background: COLORS.red + "08", fontSize: 12, color: COLORS.gray[700], lineHeight: 1.8, direction: isRTL ? "rtl" : "ltr" }}>
+                <div style={{ marginTop: 12, padding: "12px 16px", borderRadius: 12, background: COLORS.red + "08", fontSize: 19, color: COLORS.gray[700], lineHeight: 1.8, direction: isRTL ? "rtl" : "ltr" }}>
                   {lang === "ar"
                     ? "💡 كل دقيقة انتظار على حاجز منذ 1967 = 15.4 سنة بشرية ضائعة. 68 امرأة أُجبرت على الولادة على الحواجز، أسفرت عن 4 وفيات أمهات و34 إجهاضاً."
                     : "💡 Every minute of checkpoint waiting since 1967 = 15.4 human years lost. 68 women forced to give birth at checkpoints, resulting in 4 maternal deaths and 34 miscarriages."}
@@ -1332,40 +1346,40 @@ function SettlementDashboardInner() {
                 <div className="badge" style={{ background: COLORS.accent.olive + "15", color: COLORS.accent.olive, marginBottom: 12 }}>
                   {lang === "ar" ? "مقارنة صادمة" : "Shocking Comparison"}
                 </div>
-                <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 4 }}>
+                <h3 style={{ fontSize: 26, fontWeight: 700, marginBottom: 4 }}>
                   {lang === "ar" ? "الزيتون المقتلع مقابل النبيذ المزدهر" : "Uprooted Olives vs Thriving Wine"}
                 </h3>
-                <p style={{ fontSize: 12, color: COLORS.gray[500], marginBottom: 16 }}>
+                <p style={{ fontSize: 19, color: COLORS.gray[500], marginBottom: 16 }}>
                   {lang === "ar" ? "800,000+ شجرة زيتون فلسطينية اقتُلعت بينما نمت 60+ معصرة نبيذ استيطانية من الصفر" : "800,000+ Palestinian olive trees uprooted while 60+ settlement wineries grew from zero"}
                 </p>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 20 }}>
                   <div style={{ padding: 16, borderRadius: 14, background: COLORS.accent.olive + "08", border: `1px solid ${COLORS.accent.olive}20`, textAlign: "center" }}>
-                    <div style={{ fontSize: 11, color: COLORS.gray[500], marginBottom: 4 }}>{lang === "ar" ? "🫒 أشجار زيتون فلسطينية مقتلعة" : "🫒 Palestinian olive trees uprooted"}</div>
-                    <div style={{ fontSize: 32, fontWeight: 900, color: COLORS.accent.olive }}>800,000+</div>
-                    <div style={{ fontSize: 11, color: COLORS.gray[500], marginTop: 4 }}>{lang === "ar" ? "52,300 في 2024 وحده (8× المعدل)" : "52,300 in 2024 alone (8× average)"}</div>
+                    <div style={{ fontSize: 18, color: COLORS.gray[500], marginBottom: 4 }}>{lang === "ar" ? "🫒 أشجار زيتون فلسطينية مقتلعة" : "🫒 Palestinian olive trees uprooted"}</div>
+                    <div style={{ fontSize: 48, fontWeight: 900, color: COLORS.accent.olive }}>800,000+</div>
+                    <div style={{ fontSize: 18, color: COLORS.gray[500], marginTop: 4 }}>{lang === "ar" ? "52,300 في 2024 وحده (8× المعدل)" : "52,300 in 2024 alone (8× average)"}</div>
                   </div>
                   <div style={{ padding: 16, borderRadius: 14, background: COLORS.redDark + "08", border: `1px solid ${COLORS.redDark}20`, textAlign: "center" }}>
-                    <div style={{ fontSize: 11, color: COLORS.gray[500], marginBottom: 4 }}>{lang === "ar" ? "🍷 معاصر نبيذ استيطانية" : "🍷 Settlement wineries"}</div>
-                    <div style={{ fontSize: 32, fontWeight: 900, color: COLORS.redDark }}>0 → 60+</div>
-                    <div style={{ fontSize: 11, color: COLORS.gray[500], marginTop: 4 }}>{lang === "ar" ? "$50-80 مليون سنوياً / 3-5 مليون زجاجة" : "$50-80M yearly / 3-5M bottles"}</div>
+                    <div style={{ fontSize: 18, color: COLORS.gray[500], marginBottom: 4 }}>{lang === "ar" ? "🍷 معاصر نبيذ استيطانية" : "🍷 Settlement wineries"}</div>
+                    <div style={{ fontSize: 48, fontWeight: 900, color: COLORS.redDark }}>0 → 60+</div>
+                    <div style={{ fontSize: 18, color: COLORS.gray[500], marginTop: 4 }}>{lang === "ar" ? "$50-80 مليون سنوياً / 3-5 مليون زجاجة" : "$50-80M yearly / 3-5M bottles"}</div>
                   </div>
                 </div>
                 <div style={{ height: 300 }}>
                   <ResponsiveContainer>
                     <ComposedChart data={STUDY_DATA.oliveVsWine}>
                       <CartesianGrid strokeDasharray="3 3" stroke={COLORS.gray[200]} />
-                      <XAxis dataKey="year" tick={{ fontSize: 10 }} reversed={isRTL} />
-                      <YAxis yAxisId="olives" tick={{ fontSize: 10, fill: COLORS.accent.olive }} orientation={isRTL ? "right" : "left"}
-                        label={{ value: lang === "ar" ? "آلاف الأشجار المقتلعة" : "Trees uprooted (thousands)", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: COLORS.accent.olive }, dx: isRTL ? 15 : -15 }} />
-                      <YAxis yAxisId="wine" tick={{ fontSize: 10, fill: COLORS.redDark }} orientation={isRTL ? "left" : "right"}
-                        label={{ value: lang === "ar" ? "معاصر النبيذ" : "Wineries", angle: 90, position: "insideRight", style: { fontSize: 9, fill: COLORS.redDark }, dx: isRTL ? -15 : 15 }} />
+                      <XAxis dataKey="year" tick={{ fontSize: 14 }} reversed={isRTL} />
+                      <YAxis yAxisId="olives" tick={{ fontSize: 14, fill: COLORS.accent.olive }} orientation={isRTL ? "right" : "left"}
+                        label={{ value: lang === "ar" ? "آلاف الأشجار المقتلعة" : "Trees uprooted (thousands)", angle: -90, position: "insideLeft", style: { fontSize: 13, fill: COLORS.accent.olive }, dx: isRTL ? 15 : -15 }} />
+                      <YAxis yAxisId="wine" tick={{ fontSize: 14, fill: COLORS.redDark }} orientation={isRTL ? "left" : "right"}
+                        label={{ value: lang === "ar" ? "معاصر النبيذ" : "Wineries", angle: 90, position: "insideRight", style: { fontSize: 13, fill: COLORS.redDark }, dx: isRTL ? -15 : 15 }} />
                       <Tooltip contentStyle={{ borderRadius: 12, border: "none", direction: isRTL ? "rtl" : "ltr" }} />
                       <Area yAxisId="olives" dataKey="olivesDestroyed" stroke={COLORS.accent.olive} fill={COLORS.accent.olive + "20"} strokeWidth={2.5} name={lang === "ar" ? "زيتون مقتلع (آلاف)" : "Olives uprooted (K)"} type="monotone" />
                       <Line yAxisId="wine" dataKey="wineries" stroke={COLORS.redDark} strokeWidth={3} dot={{ r: 5, fill: COLORS.redDark, stroke: "white", strokeWidth: 2 }} name={lang === "ar" ? "معاصر نبيذ" : "Wineries"} type="monotone" />
                     </ComposedChart>
                   </ResponsiveContainer>
                 </div>
-                <div style={{ marginTop: 12, padding: "12px 16px", borderRadius: 12, background: COLORS.accent.olive + "08", fontSize: 12, color: COLORS.gray[700], lineHeight: 1.8, direction: isRTL ? "rtl" : "ltr" }}>
+                <div style={{ marginTop: 12, padding: "12px 16px", borderRadius: 12, background: COLORS.accent.olive + "08", fontSize: 19, color: COLORS.gray[700], lineHeight: 1.8, direction: isRTL ? "rtl" : "ltr" }}>
                   {lang === "ar"
                     ? "💡 معصرة بساغوت نمت 333 ضعفاً (3,000 → 1,000,000 زجاجة) في 22 عامًا. بومبيو زارها رسميًا 2020. بينما شجرة زيتون الوليجة (5,500 سنة - الأقدم بالعالم) مهددة بالاقتلاع لمسار الجدار."
                     : "💡 Psagot winery grew 333× (3K → 1M bottles) in 22 years. Pompeo visited it officially in 2020. Meanwhile, the Al-Walaja olive tree (5,500 years — world's oldest) is threatened by the wall's path."}
@@ -1377,10 +1391,10 @@ function SettlementDashboardInner() {
                 <div className="badge" style={{ background: COLORS.accent.sky + "15", color: COLORS.accent.sky, marginBottom: 12 }}>
                   {lang === "ar" ? "مقارنة لوجستية" : "Logistics Comparison"}
                 </div>
-                <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>
+                <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 4 }}>
                   {lang === "ar" ? "رحلة الحاوية: فلسطيني vs إسرائيلي" : "Container Journey: Palestinian vs Israeli"}
                 </h3>
-                <p style={{ fontSize: 12, color: COLORS.gray[500], marginBottom: 16 }}>
+                <p style={{ fontSize: 19, color: COLORS.gray[500], marginBottom: 16 }}>
                   {lang === "ar" ? "نفس الميناء، ضعفين إلى ثلاثة أضعاف التكلفة والوقت" : "Same port, 2-3× the cost and time"}
                 </p>
                 <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
@@ -1388,24 +1402,24 @@ function SettlementDashboardInner() {
                     const maxVal = Math.max(item.pal, item.isr);
                     return (
                       <div key={i} style={{ direction: isRTL ? "rtl" : "ltr" }}>
-                        <div style={{ fontSize: 12, fontWeight: 700, color: COLORS.gray[700], marginBottom: 6 }}>
+                        <div style={{ fontSize: 19, fontWeight: 700, color: COLORS.gray[700], marginBottom: 6 }}>
                           {lang === "ar" ? item.labelAr : item.labelEn}
                         </div>
                         <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                           <div style={{ flex: 1 }}>
                             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-                              <span style={{ fontSize: 10, color: COLORS.gray[500], minWidth: 55 }}>🇵🇸 {lang === "ar" ? "فلسطيني" : "Palestinian"}</span>
+                              <span style={{ fontSize: 17, color: COLORS.gray[500], minWidth: 55 }}>🇵🇸 {lang === "ar" ? "فلسطيني" : "Palestinian"}</span>
                               <div style={{ flex: 1, background: COLORS.gray[100], borderRadius: 8, height: 24, overflow: "hidden" }}>
                                 <div style={{ width: `${(item.pal / maxVal) * 100}%`, height: "100%", background: `linear-gradient(90deg, ${COLORS.red}, ${COLORS.redLight})`, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "flex-end", paddingInline: 8 }}>
-                                  <span style={{ fontSize: 11, fontWeight: 800, color: "white" }}>{item.pal}{item.category === "inspect" || item.category === "backtoback" ? "%" : "×"}</span>
+                                  <span style={{ fontSize: 18, fontWeight: 800, color: "white" }}>{item.pal}{item.category === "inspect" || item.category === "backtoback" ? "%" : "×"}</span>
                                 </div>
                               </div>
                             </div>
                             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                              <span style={{ fontSize: 10, color: COLORS.gray[500], minWidth: 55 }}>🇮🇱 {lang === "ar" ? "إسرائيلي" : "Israeli"}</span>
+                              <span style={{ fontSize: 17, color: COLORS.gray[500], minWidth: 55 }}>🇮🇱 {lang === "ar" ? "إسرائيلي" : "Israeli"}</span>
                               <div style={{ flex: 1, background: COLORS.gray[100], borderRadius: 8, height: 24, overflow: "hidden" }}>
                                 <div style={{ width: `${(item.isr / maxVal) * 100}%`, height: "100%", background: `linear-gradient(90deg, ${COLORS.accent.sky}, ${COLORS.accent.sky}aa)`, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "flex-end", paddingInline: 8 }}>
-                                  <span style={{ fontSize: 11, fontWeight: 800, color: "white" }}>{item.isr}{item.category === "inspect" || item.category === "backtoback" ? "%" : "×"}</span>
+                                  <span style={{ fontSize: 18, fontWeight: 800, color: "white" }}>{item.isr}{item.category === "inspect" || item.category === "backtoback" ? "%" : "×"}</span>
                                 </div>
                               </div>
                             </div>
@@ -1415,7 +1429,7 @@ function SettlementDashboardInner() {
                     );
                   })}
                 </div>
-                <div style={{ marginTop: 16, padding: "12px 16px", borderRadius: 12, background: COLORS.accent.sky + "08", fontSize: 11, color: COLORS.gray[600], lineHeight: 1.8, direction: isRTL ? "rtl" : "ltr" }}>
+                <div style={{ marginTop: 16, padding: "12px 16px", borderRadius: 12, background: COLORS.accent.sky + "08", fontSize: 18, color: COLORS.gray[600], lineHeight: 1.8, direction: isRTL ? "rtl" : "ltr" }}>
                   {lang === "ar"
                     ? "📦 74% من التجارة الفلسطينية تمر عبر موانئ إسرائيلية حصرًا. لا يوجد ميناء فلسطيني واحد. $538 تكلفة إضافية لكل شحنة من التأخيرات الأمنية وحدها."
                     : "📦 74% of Palestinian trade goes through Israeli ports exclusively. No Palestinian port exists. $538 extra per shipment from security delays alone."}
@@ -1427,10 +1441,10 @@ function SettlementDashboardInner() {
                 <div className="badge" style={{ background: COLORS.gold + "15", color: COLORS.gold, marginBottom: 12 }}>
                   {lang === "ar" ? "تمييز ممنهج" : "Systematic Discrimination"}
                 </div>
-                <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>
+                <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 4 }}>
                   {lang === "ar" ? "المستوطن vs المواطن الإسرائيلي" : "Settler vs Israeli Citizen"}
                 </h3>
-                <p style={{ fontSize: 12, color: COLORS.gray[500], marginBottom: 16 }}>
+                <p style={{ fontSize: 19, color: COLORS.gray[500], marginBottom: 16 }}>
                   {lang === "ar" ? "2.65 ضعف الدعم الحكومي — ~$460,000 فارق تراكمي عبر العمر" : "2.65× government support — ~$460,000 lifetime cumulative gap"}
                 </p>
                 <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
@@ -1450,11 +1464,11 @@ function SettlementDashboardInner() {
                     const settlerBetter = item.cat === "housing" || item.cat === "tax" ? item.settler < item.citizen : item.settler > item.citizen;
                     return (
                       <div key={i} style={{ direction: isRTL ? "rtl" : "ltr" }}>
-                        <div style={{ fontSize: 12, fontWeight: 700, color: COLORS.gray[700], marginBottom: 6 }}>
+                        <div style={{ fontSize: 19, fontWeight: 700, color: COLORS.gray[700], marginBottom: 6 }}>
                           {lang === "ar" ? item.labelAr : item.labelEn}
                         </div>
                         <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-                          <div style={{ width: 70, fontSize: 10, color: COLORS.gray[500] }}>
+                          <div style={{ width: 70, fontSize: 17, color: COLORS.gray[500] }}>
                             {lang === "ar" ? "🏘️ مستوطن" : "🏘️ Settler"}
                           </div>
                           <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 4 }}>
@@ -1468,11 +1482,11 @@ function SettlementDashboardInner() {
                                 borderRadius: 8,
                               }} />
                             </div>
-                            <span style={{ fontSize: 12, fontWeight: 800, color: COLORS.gold, minWidth: 50, textAlign: "center" }}>{settlerLabel}</span>
+                            <span style={{ fontSize: 19, fontWeight: 800, color: COLORS.gold, minWidth: 50, textAlign: "center" }}>{settlerLabel}</span>
                           </div>
                         </div>
                         <div style={{ display: "flex", gap: 6, alignItems: "center", marginTop: 3 }}>
-                          <div style={{ width: 70, fontSize: 10, color: COLORS.gray[500] }}>
+                          <div style={{ width: 70, fontSize: 17, color: COLORS.gray[500] }}>
                             {lang === "ar" ? "🏠 مواطن" : "🏠 Citizen"}
                           </div>
                           <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 4 }}>
@@ -1484,14 +1498,14 @@ function SettlementDashboardInner() {
                                 borderRadius: 8,
                               }} />
                             </div>
-                            <span style={{ fontSize: 12, fontWeight: 800, color: COLORS.gray[500], minWidth: 50, textAlign: "center" }}>{citizenLabel}</span>
+                            <span style={{ fontSize: 19, fontWeight: 800, color: COLORS.gray[500], minWidth: 50, textAlign: "center" }}>{citizenLabel}</span>
                           </div>
                         </div>
                       </div>
                     );
                   })}
                 </div>
-                <div style={{ marginTop: 16, padding: "12px 16px", borderRadius: 12, background: COLORS.gold + "08", fontSize: 11, color: COLORS.gray[600], lineHeight: 1.8, direction: isRTL ? "rtl" : "ltr" }}>
+                <div style={{ marginTop: 16, padding: "12px 16px", borderRadius: 12, background: COLORS.gold + "08", fontSize: 18, color: COLORS.gray[600], lineHeight: 1.8, direction: isRTL ? "rtl" : "ltr" }}>
                   {lang === "ar"
                     ? "💰 طريق حوارة الالتفافي: $95 مليون لـ 7.5 كم فقط لخدمة 8,000 مستوطن = $11,875 للمستوطن الواحد. الدعم التراكمي عبر العمر: ~$460,000 إضافية للمستوطن."
                     : "💰 Huwara bypass: $95M for just 7.5km serving 8,000 settlers = $11,875 per settler. Lifetime cumulative support: ~$460,000 extra per settler."}
@@ -1509,8 +1523,8 @@ function SettlementDashboardInner() {
                   <div className="badge" style={{ background: "rgba(255,255,255,0.15)", marginBottom: 16 }}>
                     {lang === "ar" ? "المعادلة المحورية" : "The Key Equation"}
                   </div>
-                  <div style={{ fontSize: 72, fontWeight: 900, lineHeight: 1 }}>1:8</div>
-                  <div style={{ fontSize: 18, opacity: 0.9, marginTop: 12, lineHeight: 1.7 }}>
+                  <div style={{ fontSize: 80, fontWeight: 900, lineHeight: 1 }}>1:8</div>
+                  <div style={{ fontSize: 26, opacity: 0.9, marginTop: 12, lineHeight: 1.7 }}>
                     {lang === "ar"
                       ? "كل دولار أنفقته إسرائيل على الاستيطان كلّف الفلسطينيين 8 دولارات من الخسائر"
                       : "Every dollar Israel spent on settlements cost Palestinians $8 in losses"}
@@ -1518,13 +1532,13 @@ function SettlementDashboardInner() {
                 </div>
                 <div style={{ display: "flex", gap: 24 }}>
                   <div style={{ textAlign: "center" }}>
-                    <div style={{ fontSize: 13, opacity: 0.6, marginBottom: 4 }}>{lang === "ar" ? "الإنفاق الإسرائيلي" : "Israeli Spending"}</div>
-                    <div style={{ fontSize: 36, fontWeight: 900, color: COLORS.goldLight }}>$71.6B</div>
+                    <div style={{ fontSize: 20, opacity: 0.6, marginBottom: 4 }}>{lang === "ar" ? "الإنفاق الإسرائيلي" : "Israeli Spending"}</div>
+                    <div style={{ fontSize: 52, fontWeight: 900, color: COLORS.goldLight }}>$71.6B</div>
                   </div>
                   <div style={{ width: 2, background: "rgba(255,255,255,0.2)" }} />
                   <div style={{ textAlign: "center" }}>
-                    <div style={{ fontSize: 13, opacity: 0.6, marginBottom: 4 }}>{lang === "ar" ? "الخسائر الفلسطينية" : "Palestinian Losses"}</div>
-                    <div style={{ fontSize: 36, fontWeight: 900, color: COLORS.redLight }}>$572B</div>
+                    <div style={{ fontSize: 20, opacity: 0.6, marginBottom: 4 }}>{lang === "ar" ? "الخسائر الفلسطينية" : "Palestinian Losses"}</div>
+                    <div style={{ fontSize: 52, fontWeight: 900, color: COLORS.redLight }}>$572B</div>
                   </div>
                 </div>
               </div>
@@ -1545,10 +1559,10 @@ function SettlementDashboardInner() {
               <div key={i} style={{ width: 40, height: 6, background: c, borderRadius: 3, border: c === COLORS.white ? `1px solid ${COLORS.gray[400]}` : "none" }} />
             ))}
           </div>
-          <div style={{ fontSize: 14, fontWeight: 700, color: "white", marginBottom: 8 }}>
+          <div style={{ fontSize: 22, fontWeight: 700, color: "white", marginBottom: 8 }}>
             {STUDY_DATA.title[lang]} — {STUDY_DATA.subtitle[lang]}
           </div>
-          <div style={{ fontSize: 12, opacity: 0.5 }}>
+          <div style={{ fontSize: 19, opacity: 0.5 }}>
             {lang === "ar"
               ? "جميع البيانات مستخرجة من مصادر موثقة ومرجعية. المشروع مفتوح المصدر."
               : "All data extracted from documented and referenced sources. Open source project."}
